@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head data-th-replace="fragments/headers::head(title='Add Product Instance')"></head>
+<body>
+<div class="container">
+  <h2 class="mt-4">Add Product Instance</h2>
+  <nav th:replace="productInstance/productInstancesPage :: top"></nav>
+  <form th:action="@{/productInstances/add}" th:object="${addProductInstanceForm}" method="post">
+    <div th:replace="fragments/formField :: form-multiSelect(product, 'Choose product', allProducts, 'productName')"></div>
+    <div th:replace="fragments/formField :: btn-addForm('/productInstances')"></div>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Fragment</title>
+</head>
+<body>
+
+<div class="form-group" th:fragment="form-Field (fieldName, label)">
+    <label data-th-for="${fieldName}"
+           data-th-class="${#fields.hasErrors(fieldName)} ? 'fieldError' : ''"
+           th:text="${label}">Label</label>
+    <input type="text" class="form-control" th:placeholder="${'Enter ' + #strings.toLowerCase(label)}"
+           th:field="*{__${fieldName}__}" required/>
+    <span class="alert alert-danger"
+          th:errors="*{__${fieldName}__}">Error</span>
+</div>
+
+
+<div class="form-group"
+     th:fragment="form-multiSelect (fieldName, label, items, displayName)">
+    <label th:for="${fieldName}" th:text="${label}">Label</label>
+    <select th:id="${fieldName}" th:name="${fieldName}" class="select2" required>
+        <option value="">Select option</option>
+        <option th:each="item : ${__${items}__}"
+                th:value="${item.id}"
+                th:text="${item[displayName]}"
+                th:selected="${item.id} == (*{__${fieldName}__} != null ? *{__${fieldName}__.id} : null)">
+            ..
+        </option>
+    </select>
+    <span class="alert alert-danger"
+          th:errors="*{__${fieldName}__}">Error</span>
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2({
+                placeholder: "Select option",
+                allowClear: true,
+                width: '33%'
+            });
+        });
+    </script>
+</div>
+
+
+<div class="form-group" th:fragment="btn-addForm(href)">
+    <input type="submit" class="btn btn-success" value="Add"/>
+    <a th:href="${href}" class="btn btn-secondary">Cancel</a>
+</div>
+
+<div class="form-group" th:fragment="btn-editForm(href)">
+    <button type="submit" class="btn btn-info">Update</button>
+    <a th:href="${href}" class="btn btn-secondary">Cancel</a>
+</div>
+
+
+<form th:fragment="action-btn(thAction, entityName, entityInfo, thHref, btnText)" class="flex-btn"
+      th:action="${thAction}"
+      th:method="post"
+      th:attr="data-confirm='Are you sure you want to delete this ' + ${entityName} + '?'"
+      onsubmit="return confirm(this.dataset.confirm)">
+    <a class="btn btn-warning" th:text="${btnText}" th:href="${thHref} +'/'+ ${__${entityInfo}__.id}">Action</a>
+    <input type="hidden" name="id" th:value="${__${entityInfo}__.id}">
+    <button class="btn btn-danger" type="submit">Delete</button>
+</form>
+
+
+<form th:fragment="delete-btn(thAction, entityName, entityInfo)" class="flex-btn"
+      th:action="${thAction}"
+      th:method="post"
+      th:attr="data-confirm='Are you sure you want to delete this ' + ${entityName} + '?'"
+      onsubmit="return confirm(this.dataset.confirm)">
+    <input type="hidden" name="id" th:value="${__${entityInfo}__.id}">
+    <button class="btn btn-danger" type="submit">Delete</button>
+</form>
+
+
+</body>
+</html>

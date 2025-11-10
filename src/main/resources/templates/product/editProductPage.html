@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head data-th-replace="fragments/headers::head(title='Edit Product')"></head>
+<body>
+<div class="container">
+  <h2 class="mt-4">Edit Product</h2>
+  <nav th:replace="product/productsPage :: top"></nav>
+  <form th:action="@{/products/edit/{id}(id=${product.id})}" th:object="${product}" method="post">
+    <div th:replace="fragments/formField :: form-Field('productName', 'Product Name')"></div>
+    <div th:replace="fragments/formField :: form-Field('description', 'Description')"></div>
+    <div th:replace="fragments/formField :: form-Field('price', 'Price')"></div>
+    <div th:replace="fragments/formField :: btn-editForm('/products')"></div>
+  </form>
+</div>
+</body>
+</html>

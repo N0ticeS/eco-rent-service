@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head data-th-replace="fragments/headers::head(title='All Product Instances')"></head>
+<body>
+<div class="container">
+    <nav data-th-fragment="top"
+         class="d-flex justify-content-center nav-padding">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/}">Main menu</a></li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/productInstances}">All
+                Product Instances</a></li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/productInstances/add}">Add
+                Product Instance</a></li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/productInstances/search}">Search
+                Product Instances</a></li>
+        </ul>
+        <div th:replace="fragments/headers :: error-message"></div>
+    </nav>
+
+    <h2>Product Instances</h2>
+
+    <table class="table table-hover mt-4">
+        <tr>
+            <th>Id</th>
+            <th>Product Name</th>
+            <th>Rental Price</th>
+            <th>Rental Rate</th>
+            <th></th>
+        </tr>
+
+        <tr th:if="${#lists.isEmpty(allProductInstances)}">
+            <td colspan="5" class="text-center">No product instances found.</td>
+        </tr>
+
+        <tr data-th-each="productInstance : ${allProductInstances}">
+            <td data-th-utext="${productInstance.id}">..</td>
+            <td data-th-utext="${productInstance.product.productName}">..</td>
+            <td data-th-utext="${productInstance.rentalPrice}">..</td>
+            <td data-th-utext="${productInstance.rentalRate}">..</td>
+            <td>
+                <div th:replace="fragments/formField :: delete-btn('/productInstances/delete', 'productInstance', productInstance)"></div>
+            </td>
+
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

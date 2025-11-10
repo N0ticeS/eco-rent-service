@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head data-th-replace="fragments/headers::head(title='Manage Products')">Manage Products</head>
+<body>
+<div class="container">
+    <nav data-th-fragment="top"
+         class="d-flex justify-content-center nav-padding">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/}">Main menu</a></li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/products}">All Products</a>
+            </li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/products/add}">Add
+                Product</a></li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/products/search}">Products
+                by Name</a></li>
+        </ul>
+        <div th:replace="fragments/headers :: error-message"></div>
+    </nav>
+
+    <h2>Products</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+
+        <tr th:if="${#lists.isEmpty(allProducts)}">
+            <td colspan="5" class="text-center">No products found.</td>
+        </tr>
+
+        <tr data-th-each="product : ${allProducts}">
+            <td data-th-utext="${product.id}">..</td>
+            <td data-th-utext="${product.productName}">..</td>
+            <td data-th-utext="${product.description}">..</td>
+            <td data-th-utext="${product.price}">..</td>
+            <td>
+                <div th:replace="fragments/formField :: action-btn('/products/delete', 'Product', product, '/products/edit', 'Edit')"></div>
+            </td>
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

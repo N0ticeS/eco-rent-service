@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head data-th-replace="fragments/headers::head(title='Main Menu')">Manage Products</head>
+<body>
+<div class="container centered-div">
+    <div data-th-fragment="top"
+         class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills flex">
+            <li class="nav-item flex-item"><a class="navigation-link main-menu" data-th-href="@{/customers}">Customers</a>
+            </li>
+            <li class="nav-item flex-item"><a class="navigation-link main-menu" data-th-href="@{/products}">Products</a>
+            </li>
+            <li class="nav-item flex-item"><a class="navigation-link main-menu" data-th-href="@{/productInstances}">ProductInstances</a>
+            </li>
+            <li class="nav-item flex-item"><a class="navigation-link main-menu" data-th-href="@{/rentals}">Rentals</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head data-th-replace="fragments/headers::head(title='Add Customer')">Add a customer</head>
+<body>
+<div class="container">
+    <nav data-th-fragment="top"
+         class="d-flex justify-content-center nav-padding">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/}">Main menu</a></li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/customers}">All
+                Customers</a></li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/customers/add}">Add
+                Customer</a></li>
+            <li class="nav-item"><a class="navigation-link small-nav-link" data-th-href="@{/customers/search}">Customers
+                by last
+                name</a></li>
+        </ul>
+        <div th:replace="fragments/headers :: error-message"></div>
+    </nav>
+
+    <h2>Customers</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Passport number</th>
+            <th>Phone number</th>
+            <th></th>
+        </tr>
+
+        <tr th:if="${#lists.isEmpty(allCustomers)}">
+            <td colspan="6" class="text-center">No customers found.</td>
+        </tr>
+
+        <tr data-th-each="customer : ${allCustomers}">
+            <td data-th-utext="${customer.id}">..</td>
+            <td data-th-utext="${customer.firstName}">..</td>
+            <td data-th-utext="${customer.lastName}">..</td>
+            <td data-th-utext="${customer.passportNumber}">..</td>
+            <td data-th-utext="${customer.phoneNumber}">..</td>
+            <td>
+                <div th:replace="fragments/formField :: action-btn('/customers/delete', 'customer', customer, '/customers/edit', 'Edit')"></div>
+            </td>
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

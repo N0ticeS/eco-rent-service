@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head data-th-replace="fragments/headers::head(title='Add Customer')"></head>
+<body>
+<div class="container">
+    <h2 class="mt-4">Add Customer</h2>
+    <nav th:replace="customer/customersPage :: top"></nav>
+    <form th:action="@{/customers/add}" th:object="${addCustomerForm}" method="post">
+        <div th:replace="fragments/formField :: form-Field(firstName, 'First Name')"></div>
+        <div th:replace="fragments/formField :: form-Field(lastName, 'Last Name')"></div>
+        <div th:replace="fragments/formField :: form-Field(passportNumber, 'Passport Number')"></div>
+        <div th:replace="fragments/formField :: form-Field(phoneNumber, 'Phone Number')"></div>
+        <div th:replace="fragments/formField :: btn-addForm('/customers')"></div>
+    </form>
+</div>
+</body>
+</html>

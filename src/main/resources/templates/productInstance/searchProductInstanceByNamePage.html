@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head data-th-replace="fragments/headers::head(title='Search Product Instance by product Name')"></head>
+<body>
+<div class="container">
+  <h2 class="mt-4">Search Product Instance by product name</h2>
+  <nav th:replace="productInstance/productInstancesPage :: top"></nav>
+  <form th:action="@{/productInstances/search}" th:object="${getProductInstanceByNameForm}" method="post">
+    <!-- Поле для ввода id -->
+    <div class="form-group">
+      <label for="productName">Product name</label>
+      <input type="text" id="productName" name="productName" class="form-control"
+             th:field="*{productName}" placeholder="Enter productName" required>
+    </div>
+    <div class="form-group mt-3">
+      <button type="submit" class="btn btn-primary">Search</button>
+      <a th:href="@{/productInstances}" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>

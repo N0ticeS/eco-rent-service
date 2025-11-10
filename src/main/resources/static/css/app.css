@@ -1,0 +1,199 @@
+.fieldError {
+    color: red;
+    font-size: 1.2rem; /* Увеличенный текст для ошибок */
+}
+
+html, body {
+    background-color: #1a1a1a !important; /* Тёмно-серый фон */
+    color: #e6e6e6 !important; /* Светло-серый текст */
+    font-family: 'Rubik', serif !important;
+    font-size: 18px; /* Увеличенный базовый размер шрифта */
+}
+
+.select2-results__option {
+    color: black;
+}
+
+.alert {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 0.5rem; /* Увеличенный отступ сверху */
+    padding: 0.5rem 1.5rem; /* Просторные отступы */
+    border: 3px solid #00bcd4; /* Акцентная рамка */
+    border-radius: 6px; /* Лёгкое закругление */
+    font-weight: bold;
+    text-transform: uppercase; /* Заглавные буквы */
+}
+
+.nav-padding {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.main-menu {
+    padding: 1.5rem 2rem;
+    background-color: #2b2b2b; /* Тёмный фон меню */
+    border: 1px solid #424242; /* Граница меню */
+    border-radius: 4px; /* Лёгкое закругление */
+    text-align: center;
+    margin-bottom: 20px; /* Отступ снизу */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Лёгкая тень */
+}
+
+.navigation-link {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    border-radius: 4px; /* Лёгкое закругление */
+    background: #424242; /* Тёмный фон */
+    text-decoration: none;
+    transition: all 0.2s;
+    color: #00bcd4; /* Бирюзовый текст */
+    padding: 10px 20px;
+    text-transform: uppercase; /* Заглавные буквы */
+}
+
+.navigation-link:hover, .navigation-link:active {
+    text-decoration: none;
+    color: #1a1a1a; /* Тёмный текст */
+    background: #00bcd4; /* Бирюзовый фон */
+}
+
+.container {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Усиленная тень */
+    border-radius: 6px; /* Ещё больше "плавности" */
+    padding: 30px !important; /* Увеличенные отступы */
+    background-color: #2b2b2b; /* Тёмный фон контейнера */
+}
+
+.centered-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 100px; /* Увеличенное межстрочное расстояние */
+    color: #00bcd4; /* Бирюзовый текст */
+    font-size: 2rem; /* Увеличенный текст */
+}
+
+table {
+    width: 100%; /* Таблица занимает всю ширину */
+    border-collapse: collapse; /* Убираем промежутки между ячейками */
+    margin-top: 20px;
+    background-color: #2b2b2b; /* Тёмный фон таблицы */
+    border: 2px solid #444444; /* Рамка вокруг всей таблицы */
+    border-radius: 8px; /* Скруглённые углы */
+    overflow: hidden;
+}
+
+table th, table td {
+    text-align: left; /* Выравнивание текста влево */
+    padding: 12px; /* Просторные отступы */
+    font-size: 1rem; /* Размер текста */
+    color: #e6e6e6; /* Светлый текст */
+    border: 1px solid #444444; /* Тонкая рамка между ячейками */
+}
+
+table th {
+    background-color: #333333; /* Тёмный фон заголовков */
+    text-transform: uppercase; /* Заглавные буквы */
+    font-weight: bold;
+    color: #00bcd4; /* Акцентный жёлтый текст для заголовков */
+}
+
+table tr:nth-child(even) {
+    background-color: #3a3a3a; /* Чередование строк */
+}
+
+table tr:nth-child(odd) {
+    background-color: #2b2b2b; /* Основной фон для нечётных строк */
+}
+
+table tr:hover {
+    background-color: #444444; /* Фон строки при наведении */
+}
+
+table td {
+    border-left: 1px solid #444444; /* Добавляем вертикальные линии */
+    border-right: 1px solid #444444; /* Вертикальные линии */
+}
+
+table td:last-child {
+    border-right: none; /* Убираем лишнюю правую границу у последней ячейки */
+}
+
+table td:first-child {
+    border-left: none; /* Убираем лишнюю левую границу у первой ячейки */
+}
+
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Увеличено расстояние между элементами */
+    width: 90%; /* Увеличена ширина контейнера */
+}
+
+.flex-item {
+    flex: 1;
+    text-align: center;
+}
+
+.form-control-small {
+    padding: .5rem .75rem; /* Увеличенные отступы */
+    font-size: 1.2rem; /* Увеличенный текст */
+    line-height: 1.6;
+    border: 3px solid #00bcd4; /* Более заметная рамка */
+    border-radius: 6px; /* Увеличено закругление */
+    background-color: #2b2b2b; /* Тёмный фон ввода */
+    color: #e6e6e6; /* Светлый текст */
+    transition: border-color .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.form-control-small:focus {
+    border-color: #008c9e; /* Бирюзовая рамка при фокусе */
+    box-shadow: 0 0 12px #00bcd4; /* Светящееся обрамление */
+}
+
+.form-control--quantity {
+    width: 15%;
+}
+
+.form-control--price {
+    width: 30%;
+}
+
+.flex-btn {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Увеличено расстояние между кнопками */
+}
+
+button {
+    background-color: #00bcd4;
+    color: #1a1a1a;
+    border: none;
+    padding: 15px 30px; /* Увеличенные размеры кнопок */
+    border-radius: 6px; /* Закругление */
+    font-size: 1.2rem; /* Увеличенный текст */
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase; /* Заглавные буквы */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #008c9e;
+    transform: scale(1.1); /* Заметное увеличение при наведении */
+}
